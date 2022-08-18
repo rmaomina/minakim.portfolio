@@ -1,33 +1,32 @@
-import './App.css';
+import './App.scss';
 
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navigator from './components/Navigator'
-import Profile from './components/Profile'
-import Resume from './components/Resume.js'
-import Learnfrom from './components/Learnfrom.js'
-import Interest from './components/Interest.js'
-import Projects from './components/Projects'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom';
+import Navigator from './pages/Navigator'
+import Profile from './pages/Profile'
+import Resume from './pages/Resume'
+import Learnfrom from './pages/Learnfrom'
+import Projects from './pages/Projects'
 
 function App() {
-  const [currNavMenu, setCurrNavMenu] = useState('profile');
 
   return (
-    <BrowserRouter>
-      <div className="app">
+    <div className="app">
+      <div className="fullpage">
         <Navigator />
         <Routes>
           <Route path="/" element={<Profile />} />
-          <Route path="/#project" />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/learnfrom" element={<Learnfrom />} />
-          <Route path="/interest" element={<Interest />} />
         </Routes>
-        <Projects />
-        <Footer />
+        <div className="fullpage__base"></div>
       </div>
-    </BrowserRouter>
+      <Projects />
+      <div className="footer">
+        Footer
+      </div>
+    </div>
   );
 }
 
