@@ -1,31 +1,26 @@
-import './App.scss';
+import './App.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navigator from './pages/Navigator'
-import Profile from './pages/Profile'
-import Resume from './pages/Resume'
-import Learnfrom from './pages/Learnfrom'
-import Projects from './pages/Projects'
+import Header from './pages/Header'
+import Portfolios from './pages/Portfolios'
+import About from './pages/About'
+import Contacts from './pages/Contacts'
+import Footer from './pages/Footer.js'
 
 function App() {
 
   return (
     <div className="app">
-      <div className="fullpage">
-        <Navigator />
+      <Header />
+      <div className="container">
         <Routes>
-          <Route path="/" element={<Profile />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/learnfrom" element={<Learnfrom />} />
+          <Route path="/" element={<Portfolios />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
-        <div className="fullpage__base"></div>
       </div>
-      <Projects />
-      <div className="footer">
-        Footer
-      </div>
+      <Footer/>
     </div>
   );
 }
