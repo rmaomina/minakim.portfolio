@@ -15,6 +15,7 @@
   font-size: 1rem;
   line-height: 1.4rem;
   text-align: right;
+  justify-content: flex-end;
 }
 
 .say__item {

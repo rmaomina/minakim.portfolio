@@ -4,9 +4,6 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
-    "@fortawesome/free-brands-svg-icons": "^6.1.2",
-    "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@notionhq/client": "^2.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -24,7 +21,11 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "reset-css": "^5.0.1",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "styled-components": "^5.3.5"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,12 +34,24 @@
     "eject": "react-scripts eject",
     "dev": "node -r dotenv/config server",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -54,8 +67,21 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/node-logger": "^6.5.10",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "gh-pages": "^4.0.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.74.0"
   },
   "homepage": "https://rmaomina.github.io/"
 }
